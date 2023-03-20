@@ -26,9 +26,17 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Titles</h3>
                         </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form">
+
+                        @if(count($errors) > 0)
+                            @foreach($errors->all() as $error)
+                               <p class="alert alert-danger">{{ $error}}</p> 
+                            @endforeach  
+                        @endif
+                        {{--  <!-- /.box-header -->  --}}
+                        {{--  <!-- form start -->  --}}
+                        <form role="form" action="{{ route('post.create') }}" method="POST">
+                            {{ csrf_field() }}
+                            
                             <div class="box-body">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -61,7 +69,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.box-body -->
+                            {{--  <!-- /.box-body -->  --}}
                             <div class="box">
                                 <div class="box-header">
                                     <h3 class="box-title">Write Post Body Here
@@ -77,10 +85,8 @@
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body pad">
-                                    <form>
-                                        <textarea class="textarea" placeholder="Place some text here" name="body"
-                                            style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                    </form>
+                                    <textarea class="textarea" placeholder="Place some text here" name="body"
+                                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
                             </div>
 
@@ -89,12 +95,12 @@
                             </div>
                         </form>
                     </div>
-                    <!-- /.box -->
+                    {{--  <!-- /.box -->  --}}
                 </div>
-                <!-- /.col-->
+                {{--  <!-- /.col-->  --}}
             </div>
-            <!-- ./row -->
+            {{--  <!-- ./row -->  --}}
         </section>
-        <!-- /.content -->
+        {{--  <!-- /.content -->  --}}
     </div>
 @endsection

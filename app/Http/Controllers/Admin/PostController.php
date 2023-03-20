@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.post');
+        return view('admin.post.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $this->validate($request,[
+            'title' => 'required',
+            'subtitle' => 'required',
+            'slug' => 'required',
+            'body' => 'required',
+       ]);
     }
 
     /**
