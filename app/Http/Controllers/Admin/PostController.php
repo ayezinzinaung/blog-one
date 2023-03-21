@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -41,6 +42,13 @@ class PostController extends Controller
             'slug' => 'required',
             'body' => 'required',
        ]);
+
+       $post = new Post;
+       $post ->title = $request ->title;
+       $post ->subtitle = $request ->subtitle;
+       $post ->slug = $request ->slug;
+       $post ->body = $request ->body;
+       $post->save();
     }
 
     /**
