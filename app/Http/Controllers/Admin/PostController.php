@@ -36,7 +36,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       $this->validate($request,[
+       $this->validate($request,
+       [
             'title' => 'required',
             'subtitle' => 'required',
             'slug' => 'required',
@@ -49,6 +50,8 @@ class PostController extends Controller
        $post ->slug = $request ->slug;
        $post ->body = $request ->body;
        $post->save();
+
+       return redirect(route('admin.post.index'));
     }
 
     /**

@@ -20,13 +20,13 @@ Route::group(['namespace' => 'User'], function() {
 });
 
 // Admin
-Route::group(['namespace' => 'Admin'], function() {
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
     
-    Route::get('/admin/home', 'HomeController@index');
-    Route::resource('/admin/user', 'UserController');
-    Route::resource('/admin/post', 'PostController');
-    Route::resource('/admin/tag', 'TagController');
-    Route::resource('/admin/category', 'CategoryController');
+    Route::get('/home', 'HomeController@index');
+    Route::resource('/user', 'UserController');
+    Route::resource('/post', 'PostController');
+    Route::resource('/tag', 'TagController');
+    Route::resource('/category', 'CategoryController');
 });
 
 

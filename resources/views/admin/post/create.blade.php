@@ -29,12 +29,12 @@
 
                         @if(count($errors) > 0)
                             @foreach($errors->all() as $error)
-                               <p class="alert alert-danger">{{ $error}}</p> 
+                               <p class="alert alert-danger">{{$error}}</p> 
                             @endforeach  
                         @endif
                         {{--  <!-- /.box-header -->  --}}
                         {{--  <!-- form start -->  --}}
-                        <form role="form" action="{{ route('post.create') }}" method="POST">
+                        <form role="form" action="{{ route('admin.post.store') }}" method="POST">
                             {{ csrf_field() }}
                             
                             <div class="box-body">
@@ -45,8 +45,8 @@
                                             placeholder="Title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="sub_title">Post Sub Title</label>
-                                        <input type="text" class="form-control" id="sub_title" name="sub_title"
+                                        <label for="subtitle">Post Sub Title</label>
+                                        <input type="text" class="form-control" id="subtitle" name="subtitle"
                                             placeholder="Sub Title">
                                     </div>
                                     <div class="form-group">
