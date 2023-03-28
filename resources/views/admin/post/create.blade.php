@@ -27,11 +27,8 @@
                             <h3 class="box-title">Titles</h3>
                         </div>
 
-                        @if(count($errors) > 0)
-                            @foreach($errors->all() as $error)
-                               <p class="alert alert-danger">{{$error}}</p> 
-                            @endforeach  
-                        @endif
+                        @include('layout.errors')
+                        
                         {{--  <!-- /.box-header -->  --}}
                         {{--  <!-- form start -->  --}}
                         <form role="form" action="{{ route('admin.post.store') }}" method="POST">

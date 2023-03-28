@@ -43,18 +43,21 @@
     <script src="{{ asset('admin/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     <!-- datepicker -->
     <script src="{{ asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <!-- Bootstrap WYSIHTML5 -->
+    {{--  <!-- Bootstrap WYSIHTML5 -->  --}}
     <script src="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-    <!-- Slimscroll -->
+    {{--  <!-- Slimscroll -->  --}}
     <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-    <!-- FastClick -->
+    {{--  <!-- FastClick -->  --}}
     <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
-    <!-- AdminLTE App -->
+    {{--  <!-- AdminLTE App -->  --}}
     <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('admin/dist/js/pages/dashboard.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
+    {{--  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->  --}}
+    {{--  <script src="{{ asset('admin/dist/js/pages/dashboard.js') }}"></script>  --}}
+    {{--  <!-- AdminLTE for demo purposes -->  --}}
     <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+    @section('footerSection')
+    @show
 </body>
 
 </html>

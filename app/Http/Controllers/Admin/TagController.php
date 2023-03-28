@@ -15,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('admin.tag.show');
+        $tags = Tag::all();
+        return view('admin.tag.show', compact('tags'));
     }
 
     /**
@@ -46,7 +47,7 @@ class TagController extends Controller
         $tag -> slug = $request -> slug;
         $tag -> save();
 
-        return redirect(route('admin.category.index'));
+        return redirect(route('admin.tag.index'));
     }
 
     /**

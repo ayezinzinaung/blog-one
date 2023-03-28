@@ -25,11 +25,9 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Titles</h3>
                         </div>
-                        @if(count($errors) > 0)
-                            @foreach($errors->all() as $error)
-                            <p class="alert alert-danger">{{$error}}</p> 
-                            @endforeach  
-                        @endif
+
+                        @include('layout.errors')
+
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" action="{{route('admin.tag.store')}}" method="POST">
@@ -49,6 +47,7 @@
                                     </div>
                                     <div class="from-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href='{{ route('admin.tag.index')}}' class="btn btn-warning">Back</a>
                                     </div>
                                 </div>
                             </div>
