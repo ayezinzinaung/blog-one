@@ -89,6 +89,7 @@
 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href='{{ route('admin.user.index')}}' class="btn btn-warning">Back</a>
                             </div>
                         </form>
                     </div>

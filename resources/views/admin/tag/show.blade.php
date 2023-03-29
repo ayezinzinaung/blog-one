@@ -61,12 +61,6 @@
                                     @endforeach
                                 </tbody>
                                 <tfoot>
-                                    <tr>
-                                        <th>S. No</th>
-                                        <th>Tag Name</th>
-                                        <th>Slug</th>
-                                        <th>Action</th>
-                                    </tr>
                                 </tfoot>
                             </table>
                         </div>

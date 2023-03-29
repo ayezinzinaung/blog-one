@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.show');
+        $posts = Post::all();
+        return view('admin.post.show', compact('posts'));
     }
 
     /**
@@ -73,7 +74,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('admin.post/edit');
     }
 
     /**
@@ -96,6 +98,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::where('id',$id)->delete();
+        return redirect()->back();
     }
 }

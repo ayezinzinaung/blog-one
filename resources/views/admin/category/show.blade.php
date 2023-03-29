@@ -1,8 +1,11 @@
 @extends('admin.layout.app')
+@section('headSection')
+  <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">  
+@endsection
 @section('main-content')
-<!-- Content Wrapper. Contains page content -->
+{{--  <!-- Content Wrapper. Contains page content -->  --}}
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    {{--  <!-- Content Header (Page header) -->  --}}
     <section class="content-header">
         <h1>
             Blank page
@@ -15,10 +18,10 @@
         </ol>
     </section>
 
-    <!-- Main content -->
+    {{--  <!-- Main content -->  --}}
     <section class="content">
 
-        <!-- Default box -->
+        {{--  <!-- Default box -->  --}}
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Category</h3>
@@ -57,28 +60,41 @@
                                 @endforeach
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th>S. No</th>
-                                    <th>Category Name</th>
-                                    <th>Slug</th>
-                                    <th>Action</th>
-                                </tr>
                             </tfoot>
                         </table>
                     </div>
                     {{--  <!-- /.box-body -->  --}}
                 </div>
             </div>
-            <!-- /.box-body -->
+            {{--  <!-- /.box-body -->  --}}
             <div class="box-footer">
                 Footer
             </div>
-            <!-- /.box-footer-->
+            {{--  <!-- /.box-footer-->  --}}
         </div>
-        <!-- /.box -->
+        {{--  <!-- /.box -->  --}}
 
     </section>
-    <!-- /.content -->
+    {{--  <!-- /.content -->  --}}
 </div>
-<!-- /.content-wrapper -->
+{{--  <!-- /.content-wrapper -->  --}}
+@endsection
+@section('footerSection')
+
+    <script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+    <script>
+        $(function () {
+          $('#example1').DataTable()
+          $('#example2').DataTable({
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false
+          })
+        })
+    </script>
 @endsection
