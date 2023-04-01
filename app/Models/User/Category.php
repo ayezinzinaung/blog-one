@@ -5,10 +5,10 @@ namespace App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
     public function posts()
     {
-        return $this->belongsToMany('App\Model\user\post','post_tag');
+        return $this->belongsToMany('App\Model\user\post','category_posts');
     }
 }

@@ -1,5 +1,7 @@
 @extends('admin.layout.app')
-
+@section('headSection')
+    <link rel="stylesheet" href="{{ asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+@endsection
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -56,10 +58,34 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="image">File input</label>
-                                        <input type="file" name="image" id="image">
+                                        <input type="file" name="image" id="image" >
                                     </div>
-                                    <br>
-                                    <br>
+                                    <div class="form-group">
+                                        <label>Select Tags</label>
+                                        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                                style="width: 100%;">
+                                          <option>Alabama</option>
+                                          <option>Alaska</option>
+                                          <option>California</option>
+                                          <option>Delaware</option>
+                                          <option>Tennessee</option>
+                                          <option>Texas</option>
+                                          <option>Washington</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Select Category</label>
+                                        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                                style="width: 100%;">
+                                          <option>Alabama</option>
+                                          <option>Alaska</option>
+                                          <option>California</option>
+                                          <option>Delaware</option>
+                                          <option>Tennessee</option>
+                                          <option>Texas</option>
+                                          <option>Washington</option>
+                                        </select>
+                                    </div>
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="status"
@@ -84,6 +110,7 @@
                                     </div>
                                     {{--  tools   --}}
                                 </div>
+
                                 {{--  <!-- /.box-header -->  --}}
                                 <div class="box-body pad">
                                     <textarea class="textarea" placeholder="Place some text here" name="body"
@@ -107,4 +134,12 @@
         </section>
         {{--  <!-- /.content -->  --}}
     </div>
+@endsection
+@section('footerSection')
+    <script src="{{ asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.select2').select2()
+        })
+    </script>
 @endsection

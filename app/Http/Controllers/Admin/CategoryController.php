@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\User\Categories;
+use App\Models\User\Category;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Categories::all();
+        $categories = Category::all();
         return view('admin.category.show', compact('categories'));
     }
 
@@ -43,7 +43,7 @@ class CategoryController extends Controller
              'slug' => 'required',
         ]);
  
-        $categories = new Categories;
+        $categories = new Category;
         $categories ->name = $request ->name;
         $categories ->slug = $request ->slug;
         $categories->save();
@@ -70,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Categories::where('id', $id)->first();
+        $category = Category::where('id', $id)->first();
         return view('admin.category.edit', compact('category'));
     }
 
@@ -89,7 +89,7 @@ class CategoryController extends Controller
              'slug' => 'required',
         ]);
  
-        $categories = Categories::find($id);
+        $categories = Category::find($id);
         $categories ->name = $request ->name;
         $categories ->slug = $request ->slug;
         $categories->save();
@@ -105,7 +105,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Categories::where('id',$id)->delete();
+        Category::where('id',$id)->delete();
         return redirect()->back();
     }
 }

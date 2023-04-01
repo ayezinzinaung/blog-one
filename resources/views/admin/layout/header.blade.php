@@ -234,8 +234,8 @@
                             <img src="dist/img/su.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                Junior Web Developer
+                                <small>Member since Nov. 2023</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
