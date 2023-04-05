@@ -9,11 +9,11 @@ class Post extends Model
 {
     public function tags()
     {
-        return $this->belongsToMany('App\Model\user\tag','post_tag');
+        return $this->belongsToMany('App\Models\User\Tag','post_tags');
     }
 
     public function categories()
     {
-        return $this->belongsToMany('App\Model\user\category','category_posts');
+        return $this->belongsToMany('App\Models\User\Category','categories_posts');
     }
 }

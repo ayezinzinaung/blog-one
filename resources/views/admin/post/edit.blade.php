@@ -56,43 +56,40 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
+                                    <br>
                                     <div class="form-group">
-                                        <label for="image">File input</label>
-                                        <input type="file" name="image" id="image" >
+                                        <div class="pull-right">
+                                            <label for="image">File input</label>
+                                            <input type="file" name="image" id="image" >
+                                        </div>
+                                        <div class="checkbox pull-left">
+                                            <label>
+                                                <input type="checkbox" name="status" value="1"
+                                                @if($post->status == 1)
+                                                    checked
+                                                @endif> Publish
+                                            </label>
+                                        </div>
                                     </div>
+                                    <br>
+                                    <br>
                                     <div class="form-group">
                                         <label>Select Tags</label>
-                                        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
-                                                style="width: 100%;">
-                                          <option>Alabama</option>
-                                          <option>Alaska</option>
-                                          <option>California</option>
-                                          <option>Delaware</option>
-                                          <option>Tennessee</option>
-                                          <option>Texas</option>
-                                          <option>Washington</option>
+                                        <select class="form-control select2 select2-hidden-accessible" multiple="multiple" data-placeholder="Select a State"
+                                                style="width: 100%;" tabindex="-1" aria-hidden="true" name="tags[]">
+                                            @foreach($tags as $tag)   
+                                                <option value="{{ $tag->id }}">{{ $tag->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Select Category</label>
-                                        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
-                                                style="width: 100%;">
-                                          <option>Alabama</option>
-                                          <option>Alaska</option>
-                                          <option>California</option>
-                                          <option>Delaware</option>
-                                          <option>Tennessee</option>
-                                          <option>Texas</option>
-                                          <option>Washington</option>
+                                        <select class="form-control select2 select2-hidden-accessible" multiple="multiple" data-placeholder="Select a State"
+                                                style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
+                                            @foreach($categories as $category)   
+                                                <option value="{{ $category->id}}">{{ $category->name}}</option>
+                                            @endforeach
                                         </select>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="status"
-                                            @if($post->status == 1)
-                                                checked
-                                            @endif> Publish
-                                        </label>
                                     </div>
                                 </div>
                             </div>
