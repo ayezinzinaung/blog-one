@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function tags()
-    {
-        return $this->belongsToMany('App\Models\User\Tag','post_tags');
-    }
+    // public function tags()
+    // {
+    //     return $this->belongsToMany('App\Models\User\Tag','post_tags')->withTimestamp();
+    // }
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\User\Category','categories_posts');
+        return $this->belongsToMany('App\Models\User\Category','category_posts');
     }
 }
