@@ -105,8 +105,9 @@
                                 </div>
                                 {{--  <!-- /.box-header -->  --}}
                                 <div class="box-body pad">
-                                    <textarea class="textarea" placeholder="Place some text here" name="body"
-                                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    <textarea class="textarea" name="body"
+                                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
+                                        id="editor1"></textarea>
                                 </div>
                             </div>
 
@@ -127,6 +128,13 @@
 @endsection
 @section('footerSection')
     <script src="{{ asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script>
+        $(function(){
+            CKEDITOR.replace( 'editor1');
+               $(".textarea").wysihtml5();
+        });
+    </script>
     <script>
         $(document).ready(function(){
             $('.select2').select2()
