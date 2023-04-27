@@ -48,8 +48,6 @@
                                     <th>Post Title</th>
                                     <th>Post Sub Title</th>
                                     <th>Post Slug</th>
-                                    <th>File input</th>
-                                    <th>Write Post Body Here</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
@@ -62,8 +60,6 @@
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->subtitle }}</td>
                                     <td>{{ $post->slug }}</td>
-                                    <td>{{ $post->image }}</td>
-                                    <td>{{ $post->body }}</td>
                                     <td>{{ $post->created_at }}</td>
                                     <td>{{ $post->updated_at }}</td>
                                     <td>

@@ -122,9 +122,9 @@
 
                                 {{--  <!-- /.box-header -->  --}}
                                 <div class="box-body pad">
-                                    <textarea class="textarea" name="body"
+                                    <textarea name="body"
                                         style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
-                                        id="editor1"></textarea>
+                                        id="editor1">{{ $post->body }}</textarea>
                                 </div>
                             </div>
 
@@ -145,7 +145,7 @@
 @endsection
 @section('footerSection')
     <script src="{{ asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
-    <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
     <script>
         $(function(){
             CKEDITOR.replace( 'editor1');
