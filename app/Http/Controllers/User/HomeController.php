@@ -10,7 +10,8 @@ class HomeController extends Controller
 {
    public function index()
    {
-      $posts = Post::where('status', 1)->paginate(1);
+      $posts = Post::where('status', 1)->paginate(5);
       return view('user.blog', compact('posts'));
    } 
+
 }
