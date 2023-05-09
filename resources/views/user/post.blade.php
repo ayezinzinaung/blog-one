@@ -1,11 +1,14 @@
 @extends('user.app')
 @section('bg-img', asset('user/img/post-bg.jpg'))
+@section('head')
+    <link rel="stylesheet" href="{{ asset('user/css/prism.css') }}">
+@endsection
 @section('title', $post->title)
 @section('sub-heading', $post->subtitle)
 @section('main-content')
 <!-- Post Content-->
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/my_MM/sdk.js#xfbml=1&version=v16.0" nonce="w9DJPsOo"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/my_MM/sdk.js#xfbml=1&version=v16.0&appId=801164397699217&autoLogAppEvents=1" nonce="w42NmHWm"></script>
 <article class="mb-4">
     <div class="container">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -27,8 +30,11 @@
                 @endforeach
             </div>
 
-            <div class="fb-comments" data-href="https://localhost:8000" data-width="" data-numposts="10"></div>
+            <div class="fb-comments" data-href="{{Request::url()}}" data-width="" data-numposts="10"></div>
         </div>
     </div>
 </article>
+@endsection
+@section('footer')
+    <script src="{{ asset('user/js/prism.js') }}"></script>
 @endsection

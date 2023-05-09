@@ -128,7 +128,7 @@
 @endsection
 @section('footerSection')
     <script src="{{ asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
-    <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
+    <script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
     <script>
         $(function(){
             CKEDITOR.replace( 'editor1');
