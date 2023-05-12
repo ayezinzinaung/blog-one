@@ -33,7 +33,7 @@
 
                         {{--  <!-- /.box-header -->  --}}
                         {{--  <!-- form start -->  --}}
-                        <form role="form" action="{{ route('admin.post.update', $post->id) }}" method="POST">
+                        <form role="form" action="{{ route('admin.post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
                             
