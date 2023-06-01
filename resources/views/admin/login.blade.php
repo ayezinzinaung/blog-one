@@ -39,7 +39,7 @@
 
     @include('layout.errors')
 
-    <form action="{{ route('admin.admin.login')}}" method="post">
+    <form action="{{ route('admin.login')}}" method="post">
         {{csrf_field()}}
         
       <div class="form-group has-feedback">
