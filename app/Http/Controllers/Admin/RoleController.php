@@ -2,27 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User\User;
-use App\Models\Admin\Admin;
+use App\Models\Admin\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
-    
     public function index()
     {
-        $users = Admin::all();
-        return view('admin.user.show', compact('users'));
+        $roles = Role::all();
+        return view('admin.role.show', compact('roles'));
     }
 
     /**
@@ -32,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.role.create');
     }
 
     /**
@@ -45,19 +39,13 @@ class UserController extends Controller
     {
         $this->validate($request,
         [
-             'name' => 'required',
-             'email' => 'required',
-             'phone' => 'required',
-             'role' => 'required',
+             'name' => 'required|max:50|unique:roles',
         ]); 
-        $user = new Admin;
-        $user -> name = $request -> name;
-        $user -> email = $request -> email;
-        $user -> phone = $request -> phone;
-        $user -> role = $request -> role;
-        $user -> save();
+        $role = new Role;
+        $role -> name = $request -> name;
+        $role -> save();
 
-        return redirect(route('admin.user.index'));
+        return redirect(route('admin.role.index'));
     }
 
     /**
@@ -102,7 +90,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        Admin::where('id',$id)->delete();
+        Role::where('id',$id)->delete();
         return redirect()->back();
     }
 }

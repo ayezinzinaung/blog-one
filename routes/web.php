@@ -31,6 +31,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
     Route::get('/home', 'HomeController@index');
     Route::resource('/user', 'UserController');
     Route::resource('/post', 'PostController');
+    Route::resource('/role', 'RoleController');
     Route::resource('/tag', 'TagController');
     Route::resource('/category', 'CategoryController');
 });
