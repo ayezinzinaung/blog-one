@@ -23,10 +23,10 @@
                     {{--  general form elements  --}}
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Titles</h3>
+                            <h3 class="box-title">Edit Role</h3>
                         </div>
 
-                        @include('layout.errors')
+                        @include('includes.messages')
 
                         <!-- /.box-header -->
                         <!-- form start -->
@@ -40,11 +40,6 @@
                                         <label for="name">role Title</label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             placeholder="role Title" value="{{$role->name}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="slug">role Slug</label>
-                                        <input type="text" class="form-control" id="slug" name="slug"
-                                            placeholder="Slug" value="{{$role->name}}">
                                     </div>
                                     <div class="from-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>

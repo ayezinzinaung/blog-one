@@ -26,7 +26,7 @@
                             <h3 class="box-title">Add New Admin User</h3>
                         </div>
 
-                        @include('layout.errors')
+                        @include('includes.messages')
 
                         <!-- /.box-header -->
                         <!-- form start -->
@@ -61,12 +61,16 @@
                                         required autocomplete="new-password" placeholder="confirm password">
                                     </div>
                                     <div class="from-group">
-                                        <label for="role">Assign Role</label>
-                                        <select name="role" id="" class="form-control">
-                                            <option value="0">Editor</option>
-                                            <option value="1">Publisher</option>
-                                            <option value="2">Writer</option>
-                                        </select>
+                                        <label>Assign Role</label>
+                                        <div class="row">
+                                            @foreach($roles as $role)
+                                            <div class="col-lg-4">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value="{{$role->id}}" name="role[]">{{$role->name}}</label>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="from-group">

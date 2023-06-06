@@ -37,7 +37,7 @@
     <p class="login-box-msg">Sign in to start your session</p>
 
 
-    @include('layout.errors')
+    @include('includes.messages')
 
     <form action="{{ route('admin.login')}}" method="post">
         {{csrf_field()}}

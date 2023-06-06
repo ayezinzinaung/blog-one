@@ -29,7 +29,7 @@
                             <h3 class="box-title">Titles</h3>
                         </div>
 
-                        @include('layout.errors')
+                        @include('includes.messages')
 
                         {{--  <!-- /.box-header -->  --}}
                         {{--  <!-- form start -->  --}}

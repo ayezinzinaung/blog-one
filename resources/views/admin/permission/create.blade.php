@@ -23,26 +23,26 @@
                     {{--  general form elements  --}}
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Create Role</h3>
+                            <h3 class="box-title">Create Permission</h3>
                         </div>
 
                         @include('includes.messages')
 
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('admin.role.store')}}" method="POST">
+                        <form permission="form" action="{{route('admin.permission.store')}}" method="POST">
                             {{csrf_field()}}
 
                             <div class="box-body">
                                 <div class="col-lg-offset-3 col-lg-6">
                                     <div class="form-group">
-                                        <label for="name">Role Title</label>
+                                        <label for="name">Permission Title</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Role Title">
+                                            placeholder="Permission Title">
                                     </div>
                                     <div class="from-group">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href='{{ route('admin.role.index')}}' class="btn btn-warning">Back</a>
+                                        <a href='{{ route('admin.permission.index')}}' class="btn btn-warning">Back</a>
                                     </div>
                                 </div>
                             </div>

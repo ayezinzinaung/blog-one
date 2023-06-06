@@ -32,6 +32,8 @@
               <li class=""><a href=" {{ route('admin.category.index')}}"><i class="fa fa-circle-o"></i> Categories</a></li>
               <li class=""><a href=" {{ route('admin.tag.index')}}"><i class="fa fa-circle-o"></i> Tags</a></li>
               <li class=""><a href="{{ route('admin.user.index')}}"><i class="fa fa-circle-o"></i> Users</a></li>
+              <li class=""><a href="{{ route('admin.role.index')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
+              <li class=""><a href="{{ route('admin.permission.index')}}"><i class="fa fa-circle-o"></i> Permissions</a></li>
             </li>
         </ul>
     </section>
