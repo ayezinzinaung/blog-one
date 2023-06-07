@@ -40,9 +40,11 @@ class PermissionController extends Controller
         $this->validate($request,
         [
              'name' => 'required|max:50|unique:permissions',
+             'for' => 'required'
         ]); 
         $permission = new Permission;
         $permission -> name = $request -> name;
+        $permission -> for = $request -> for;
         $permission -> save();
 
         return redirect(route('admin.permission.index'));
@@ -83,9 +85,11 @@ class PermissionController extends Controller
         $this->validate($request,
         [
              'name' => 'required|max:50',
+             'for' => 'required',
         ]); 
         $permission = Permission::find($id);
         $permission -> name = $request -> name;
+        $permission -> for = $request -> for;
         $permission -> save();
 
         return redirect(route('admin.permission.index'))->with('message', 'Permission Update Successfully');
