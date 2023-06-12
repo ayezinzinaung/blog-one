@@ -47,17 +47,15 @@ class UserController extends Controller
     {
         $this->validate($request,
         [
-             'name' => 'required',
-             'email' => 'required',
-             'phone' => 'required',
-             'role' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'phone' => ['required', 'numeric', 'unique:admins'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]); 
-        $user = new Admin;
-        $user -> name = $request -> name;
-        $user -> email = $request -> email;
-        $user -> phone = $request -> phone;
-        $user -> role = $request -> role;
-        $user -> save();
+
+        $request['password'] = bcrypt($request->password);
+        $user ->role()->sync($request->role);
+        $user = Admin::create($request->all());
 
         return redirect(route('admin.user.index'));
     }
@@ -81,7 +79,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $roles = Role::all();
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -93,7 +93,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+        [
+            'name' => 'required|string|max:255',
+            'email' => 'require|string|email|max:255',
+            'phone' => 'required|numeric',
+        ]); 
+
+        $user = Admin::where('id', $id)->update($request->except('_token', '_method'));
+        $user ->role()->sync($request->role);
+        return redirect(route('admin.user.index'))->with('message', 'AdminUser is Update Successfully');
     }
 
     /**
@@ -105,6 +114,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         Admin::where('id',$id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'AdminUser is Deleted Successfully');
     }
 }

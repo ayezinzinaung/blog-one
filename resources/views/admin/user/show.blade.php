@@ -26,6 +26,8 @@
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Admin Users</h3>
+                    @include('includes.messages')
+                    
                     <a class="col-lg-offset-5 btn btn-success" href="{{route('admin.user.create')}}">Add New</a>
 
                     <div class="box-tools pull-right">
