@@ -11,6 +11,11 @@ class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Admin\Role','admin_roles');
+    }
+
     protected $fillable = [
         'name',
         'email',

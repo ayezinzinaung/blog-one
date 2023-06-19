@@ -49,13 +49,13 @@ class UserController extends Controller
         [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-            'phone' => ['required', 'numeric', 'unique:admins'],
+            'phone' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]); 
 
         $request['password'] = bcrypt($request->password);
-        $user ->role()->sync($request->role);
         $user = Admin::create($request->all());
+        $user ->roles()->sync($request->role);
 
         return redirect(route('admin.user.index'));
     }
@@ -100,8 +100,8 @@ class UserController extends Controller
             'phone' => 'required|numeric',
         ]); 
 
-        $user = Admin::where('id', $id)->update($request->except('_token', '_method'));
-        $user ->role()->sync($request->role);
+        $user = Admin::where('id', $id)->update($request->except('_token', '_method', 'role'));
+        Admin::find($id)->roles()->sync($request->role);
         return redirect(route('admin.user.index'))->with('message', 'AdminUser is Update Successfully');
     }
 
