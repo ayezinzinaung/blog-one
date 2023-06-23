@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User\User;
 use App\Models\Admin\Role;
 use App\Models\Admin\Admin;
 use Illuminate\Http\Request;
@@ -79,7 +78,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::where('id', $id)->first();
+        $user = Admin::where('id', $id)->first();
         $roles = Role::all();
         return view('admin.user.edit', compact('user', 'roles'));
     }
@@ -96,8 +95,6 @@ class UserController extends Controller
         $this->validate($request,
         [
             'name' => 'required|string|max:255',
-            'email' => 'require|string|email|max:255',
-            'phone' => 'required|numeric',
         ]); 
 
         $user = Admin::where('id', $id)->update($request->except('_token', '_method', 'role'));

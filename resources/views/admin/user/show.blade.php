@@ -50,6 +50,7 @@
                                         <th>User Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>Assigned Roles</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -60,6 +61,11 @@
                                         <td>{{ $user->name}}</td>
                                         <td>{{ $user->email}}</td>
                                         <td>{{ $user->phone}}</td>
+                                        <td>
+                                            @foreach($user->roles as $role)
+                                                {{ $role->name}},
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.user.edit', $user->id) }}"><span
                                                     class="glyphicon glyphicon-edit"></span></a>

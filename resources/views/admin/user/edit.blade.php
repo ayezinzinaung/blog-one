@@ -39,29 +39,26 @@
                                     <div class="from-group">
                                         <label for="name">User Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="User Name" value="@if(old('name')){{old('name')}}@else{{$user->name}}@endif">
+                                            placeholder="User Name" value="@if (old('name')){{ old('name') }}@else{{ $user->name }}@endif">
                                     </div>
                                     <div class="from-group">
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email"
-                                            placeholder="email" value="@if(old('email')){{old('email')}}@else{{$user->email}}@endif">
+                                            placeholder="email" value="@if (old('email')){{ old('email') }}@else{{ $user->email}}@endif">
                                     </div>
                                     <div class="from-group">
                                         <label for="phone">Phone</label>
                                         <input type="text" class="form-control" id="phone" name="phone"
-                                            placeholder="phone" value="@if(old('phone')){{old('phone')}}@else{{$user->phone}}@endif">
+                                            placeholder="phone" value="@if (old('phone')){{ old('phone') }}@else{{ $user->phone}}@endif">
                                     </div>
 
                                     <div class="from-group">
                                         <label for="password-confirm">Status</label>      
                                         <div class="checkbox">
-                                            <label><input type="checkbox" name="status" value=""
-                                                @foreach($user->roles as $user_role)
-                                                    @if($user_role->id == $role->id)
-                                                        checked
-                                                    @endif
-                                                @endforeach
-                                                >Status</label>
+                                            <label><input type="checkbox" name="status" value="1"
+                                                @if(old('status') == 1 || $user->status == 1)
+                                                    checked
+                                                @endif>Status</label>
                                         </div>
                                     </div>
 
@@ -71,7 +68,15 @@
                                             @foreach($roles as $role)
                                             <div class="col-lg-4">
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" value="{{$role->id}}" name="role[]">{{$role->name}}</label>
+                                                    <label>
+                                                        <input type="checkbox" value="{{ $role->id }}" name="role[]"
+                                                        @foreach ($user->roles as $user_role)
+                                                            @if ($user_role->id == $role->id)
+                                                                checked
+                                                            @endif
+                                                        @endforeach
+                                                        >{{$role->name}}
+                                                    </label>
                                                 </div>
                                             </div>
                                             @endforeach
