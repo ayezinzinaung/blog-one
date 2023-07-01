@@ -16,6 +16,11 @@ class Admin extends Authenticatable
         return $this->belongsToMany('App\Models\Admin\Role','admin_roles');
     }
 
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
     protected $fillable = [
         'name',
         'email',

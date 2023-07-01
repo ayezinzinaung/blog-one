@@ -8,7 +8,7 @@
               <img src="{{asset ('admin/dist/img/su.jpg') }}" class="img-circle" style="object-fit: cover !important; width: 50px !important; height: 50px !important;" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Aye Zin Zin Aung</p>
+                <p>{{ Auth::user()->name}}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
