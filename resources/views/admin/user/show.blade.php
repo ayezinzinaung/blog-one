@@ -49,6 +49,7 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Assigned Roles</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -64,6 +65,7 @@
                                                 {{ $role->name}},
                                             @endforeach
                                         </td>
+                                        <td>{{ $user->status? 'Active' : 'Not Active'}}</td>
                                         <td>
                                             <a href="{{ route('admin.user.edit', $user->id) }}"><span
                                                     class="glyphicon glyphicon-edit"></span></a>

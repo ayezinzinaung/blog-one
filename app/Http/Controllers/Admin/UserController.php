@@ -95,8 +95,11 @@ class UserController extends Controller
         $this->validate($request,
         [
             'name' => 'required|string|max:255',
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['required', 'numeric'],
         ]); 
 
+        $request->status? :$request['status']=0;
         $user = Admin::where('id', $id)->update($request->except('_token', '_method', 'role'));
         Admin::find($id)->roles()->sync($request->role);
         return redirect(route('admin.user.index'))->with('message', 'AdminUser is Update Successfully');

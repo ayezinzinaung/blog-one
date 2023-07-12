@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Models\Admin\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -52,6 +53,20 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
         return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function credentials(Request $request)
+    {
+        $admin = Admin::where('email', $request->email)->first();
+
+        // if(count($admin)) {
+            if($admin->status == 0) {
+                return['email'=>'inactive', 'password'=>'You are not an active person, please contat Admin'];
+            }else{
+                return ['email'=>$request->email,'password'=>$request->password,'status'=>1];
+            }
+        // }
+        // return $request->only($this->username(), 'password');
     }
 
     public function __construct()
