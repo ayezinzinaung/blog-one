@@ -28,12 +28,16 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-              <li class=""><a href=" {{ route('admin.post.index')}}"><i class="fa fa-circle-o"></i> Posts</a></li>
-              <li class=""><a href=" {{ route('admin.category.index')}}"><i class="fa fa-circle-o"></i> Categories</a></li>
-              <li class=""><a href=" {{ route('admin.tag.index')}}"><i class="fa fa-circle-o"></i> Tags</a></li>
-              <li class=""><a href="{{ route('admin.user.index')}}"><i class="fa fa-circle-o"></i> Users</a></li>
-              <li class=""><a href="{{ route('admin.role.index')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
-              <li class=""><a href="{{ route('admin.permission.index')}}"><i class="fa fa-circle-o"></i> Permissions</a></li>
+                <li class=""><a href=" {{ route('admin.post.index')}}"><i class="fa fa-circle-o"></i> Posts</a></li>
+                @can('posts.category', Auth::user())
+                    <li class=""><a href=" {{ route('admin.category.index')}}"><i class="fa fa-circle-o"></i> Categories</a></li>
+                @endcan
+                @can('posts.tag', Auth::user())
+                    <li class=""><a href=" {{ route('admin.tag.index')}}"><i class="fa fa-circle-o"></i> Tags</a></li>
+                @endcan
+                <li class=""><a href="{{ route('admin.user.index')}}"><i class="fa fa-circle-o"></i> Users</a></li>
+                <li class=""><a href="{{ route('admin.role.index')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
+                <li class=""><a href="{{ route('admin.permission.index')}}"><i class="fa fa-circle-o"></i> Permissions</a></li>
             </li>
         </ul>
     </section>
