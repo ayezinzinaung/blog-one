@@ -20,6 +20,8 @@ Route::group(['namespace' => 'User'], function() {
     Route::get('/post/category/{category}', 'HomeController@category')->name('category');
     Route::get('/post/{post}', 'PostController@post')->name('post');
 
+    // Vue route
+    Route::post('getPosts', 'PostController@getAllPosts');
 });
 
 // Admin

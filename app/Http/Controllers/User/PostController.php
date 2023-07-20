@@ -12,4 +12,9 @@ class PostController extends Controller
     {
         return view('user.post', compact('post'));
     }
+
+    public function getAllPosts()
+    {
+        return $posts = Post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
+    }
 }
