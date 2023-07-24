@@ -10,10 +10,14 @@
         
         @include('user.layout/header')
 
-        @section('main-content')
+        <div id="app">
+            @yield('main-content')
+
             @show
+        </div>
 
         @include('user.layout/footer')
 
+        <script  src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
