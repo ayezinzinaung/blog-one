@@ -1,5 +1,5 @@
 <template>
-    <div class="post-preview">   
+    <div class="post-preview">
         <a href="slug">
             <h2 class="post-title">
                 {{ title }}
@@ -10,7 +10,7 @@
         </a>
         <p class="post-meta">
             Posted by
-            <a href="#!">Start Bootstrap</a>
+            <a href="#">Start Bootstrap</a>
                 {{ created_at }}
                 <a href="">
                     <small>0</small>

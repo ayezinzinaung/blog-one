@@ -1,13 +1,10 @@
 require('./bootstrap');
 
-import ExampleComponent from './components/ExampleComponent.vue';
 import PostsComponent from './components/Posts.vue';
 
 window.Vue = require('vue').default;
 
-
-Vue.component('example-component', ExampleComponent);
-Vue.component('posts-component', PostsComponent);
+Vue.component('posts', PostsComponent);
 
 let url = window.location.href;
 
@@ -27,7 +24,7 @@ const app = new Vue({
                 this.blog = response.data.data
                 // console.log(response);
             })
-        
+
             .catch(function (error) {
                 console.log(error);
             });
