@@ -13,20 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// User 
+// User
 Route::group(['namespace' => 'User'], function() {
     Route::get('/', 'HomeController@index');
     Route::get('/post/tag/{tag}', 'HomeController@tag')->name('tag');
     Route::get('/post/category/{category}', 'HomeController@category')->name('category');
     Route::get('/post/{post}', 'PostController@post')->name('post');
 
-    // Vue route
+    // Vue routes
     Route::post('getPosts', 'PostController@getAllPosts');
+    Route::post('saveLike', 'PostController@saveLike');
 });
 
 // Admin
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
-    
+
     Route::get('/admin-login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('/admin-login', 'Auth\LoginController@login');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');

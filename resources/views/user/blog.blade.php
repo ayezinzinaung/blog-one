@@ -22,6 +22,8 @@
                     :subtitle=value.subtitle
                     :created_at=value.created_at
                     :key=value.index
+                    :post-id= value.id
+                    login="{{ Auth::check()}}"
                     ></posts>
 
                     <div class="d-flex justify-content-end mb-4">

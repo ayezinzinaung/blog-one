@@ -21,7 +21,7 @@ const app = new Vue({
             'page' : pageNumber
         })
             .then(response=>{
-                this.blog = response.data.data
+                this.blog = response.data.data;
                 // console.log(response);
             })
 
