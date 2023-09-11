@@ -14,7 +14,7 @@ class HomeController extends Controller
    {
       $posts = Post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
       return view('user.blog', compact('posts'));
-   } 
+   }
 
    public function tag(Tag $tag)
    {

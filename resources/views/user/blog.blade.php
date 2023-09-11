@@ -23,7 +23,7 @@
                     :created_at=value.created_at
                     :key=value.index
                     :post-id= value.id
-                    login="{{ Auth::check()}}"
+                    login="{{ Auth::guard('web')->check()}}"
                     ></posts>
 
                     <div class="d-flex justify-content-end mb-4">

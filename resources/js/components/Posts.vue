@@ -12,10 +12,13 @@
             Posted by
             <a href="#">Start Bootstrap</a>
                 {{ created_at }}
-                <a href="" @click.prevent="likeIt">
+                <!-- <button @click.prevent="test">
                     <small>{{ likeCount }}</small>
                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                </a>
+                </button> -->
+
+
+                <button class="btn btn-primary" @click="test">Click</button>
         </p>
         <hr>
     </div>
@@ -25,7 +28,7 @@
     export default {
         data(){
             return {
-                likeCount:0
+                likeCount: 0
             }
         },
         props:[
@@ -48,8 +51,13 @@
                         console.log(error);
                     });
                 }else{
-                    window.location = 'login'
+                    // window.location.replace('login');
+                    console.log(123);
                 }
+            },
+
+            test() {
+                alert(123);
             }
         }
     }

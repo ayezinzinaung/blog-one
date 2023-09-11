@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\User\Like;
 use App\Models\User\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,9 +20,9 @@ class PostController extends Controller
         return $posts = Post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
     }
 
-    public function saveLike(request $request)
+    public function saveLike(Request $request)
     {
-        $like = new like;
+        $like = new Like;
         $like->user_id = Auth::id();
         $like->post_id = $request->id;
         $like->save();
